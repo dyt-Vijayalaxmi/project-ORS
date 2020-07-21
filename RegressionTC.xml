@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="com.dyt.ors.regression.Regressiontestcases">
+      <methods>
+	     <exclude name="TC001_adminLoginValiddata"/>      		
+	     <exclude name="TC002_adminLoginInvaliddata"/>     
+	     <exclude name="TC003_addMainCategory"/>  
+	     <exclude name="TC004_addMainCategoryDuplicateRecord"/>  
+	     <exclude name="TC005_addMCWithoutMandatoryfield"/>  
+	     <include name="TC006_editMainCategory"/>   
+	     <exclude name="TC007_deleteMainCategory"/> 
+	     <exclude name="TC008_addSubCategory"/> 
+	     <exclude name="TC009_addSCWithoutMandatoryfield"/> 
+	     <exclude name="TC010_addSubCategoryDuplicateRecord"/> 
+	     <exclude name="TC011_editMainCategory"/> 
+	     <exclude name="TC0012_deleteSubCategory"/>
+	     <exclude name="TC013_addProducts"/>
+	     <exclude name="TC014_addProductswithoutMaindatoryFields"/>
+	     <exclude name="TC015_addProductWithoutSubCategory"/>
+	     <exclude name="TC016_addProductwithDuplicateProduct"/>
+	     <exclude name="TC017_EditProducts"/> 
+	     <exclude name="TC0019_deleteProduct"/> 
+	     <exclude name="TC020_homePage"/> 
+	     <exclude name="TC021_searchWithoutInputTheData"/> 
+	     <exclude name="TC022_searchWithInvalidData"/> 
+	     <exclude name="TC023_searchWithProductName"/>
+	     <exclude name="TC024_searchWithSynonym"/> 
+	     <exclude name="TC025_searchWithCatNo"/> 
+	     <exclude name="TC026_searchWithCasNo"/> 
+	     <exclude name="TC027_searchRelatedProducts"/>
+	     <exclude name="TC028_searchRelatedCategories"/>  
+	     <exclude name="TC029_searchRelatedDocuments"/>
+	     <exclude name="TC030_searchWithInvalidLotNo"/> 
+	          
+      </methods>
+      
+      </class>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
