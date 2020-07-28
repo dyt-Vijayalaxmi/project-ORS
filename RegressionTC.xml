@@ -5,16 +5,16 @@
     <classes>
       <class name="com.dyt.ors.regression.Regressiontestcases">
       <methods>
-	     <exclude name="TC001_adminLoginValiddata"/>      		
-	     <exclude name="TC002_adminLoginInvaliddata"/>     
-	     <exclude name="TC003_addMainCategory"/>  
-	     <exclude name="TC004_addMainCategoryDuplicateRecord"/>  
-	     <exclude name="TC005_addMCWithoutMandatoryfield"/>  
+	     <include name="TC001_adminLoginValiddata"/>      		
+	     <include name="TC002_adminLoginInvaliddata"/>     
+	     <include name="TC003_addMainCategory"/>  
+	     <include name="TC004_addMainCategoryDuplicateRecord"/>  
+	     <include name="TC005_addMCWithoutMandatoryfield"/>  
 	     <include name="TC006_editMainCategory"/>   
-	     <exclude name="TC007_deleteMainCategory"/> 
-	     <exclude name="TC008_addSubCategory"/> 
-	     <exclude name="TC009_addSCWithoutMandatoryfield"/> 
-	     <exclude name="TC010_addSubCategoryDuplicateRecord"/> 
+	     <include name="TC007_deleteMainCategory"/> 
+	     <include name="TC008_addSubCategory"/> 
+	     <include name="TC009_addSCWithoutMandatoryfield"/> 
+	     <include name="TC010_addSubCategoryDuplicateRecord"/> 
 	     <exclude name="TC011_editMainCategory"/> 
 	     <exclude name="TC0012_deleteSubCategory"/>
 	     <exclude name="TC013_addProducts"/>

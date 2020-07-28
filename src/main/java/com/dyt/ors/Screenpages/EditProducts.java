@@ -117,9 +117,8 @@ public class EditProducts extends WebLibrary{
 	}
 		
 	//=========================================================
-	public static void editProduct( String prdDesc,
-									String prdGrade,
-									String Make,String packsize,String prdAvalibility,
+	public static void editProduct( String prdDesc,String prdGrade,String Make,
+			                        String packsize,String prdAvalibility,
 							        String PrdPrice,String SDSfilepath) 
 	{
 		boolean bStatus;
@@ -158,16 +157,32 @@ public class EditProducts extends WebLibrary{
 		Reporter.log(bStatus, "submit button is clicked", "submit button is clicked");
 	}
 	
-	//=============================================================
-	public static void EditProduct()
-	{
-		boolean bStatus;
-		
-		bStatus = clickElement(edit_button);
-		Reporter.log(bStatus, "Edit Button clicked", "Edit Botton not clicked");
-		
-		
-	}
+	//===================verify edited details in the SC list page================================
+
+	public static boolean verifyediteddetails(String expValue) {
+	  boolean bStatus = false;
+			try 
+			{
+				List<WebElement> rows = driver.findElements(By.xpath("//table[@id='dataTable']/tbody/tr"));
+				int trcount=rows.size();
+				
+				for(int i=1; i<=trcount; i++) {
+				String actValue=driver.findElement(By.xpath("//table[@id='dataTable']/tbody/tr["+i+"]/td[3]")).getText();
+				
+				if ((actValue.equals(expValue))) 
+				  {
+					System.out.println("edited details are added in Product list page");
+					break;
+				   }
+				}
+			}
+				
+			catch(Exception e) {
+					bStatus = false;
+				}
+				return bStatus;
+				
+				}
 	
 	
 	

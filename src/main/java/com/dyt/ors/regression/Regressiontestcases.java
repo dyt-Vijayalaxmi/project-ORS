@@ -116,8 +116,8 @@ public class Regressiontestcases extends BaseClass {
 			home.navLoginpage();;
 			login.loginApp(data[0],data[1]);
 			dashBoard.navMainCategories();
-			//editMainCategory.selectEditicon(data[2]);
-			//editMainCategory.editMainCategoryPage(data[3],data[4],data[5]);
+			editMainCategory.selectEditicon(data[2]);
+			editMainCategory.editMainCategoryPage(data[3],data[4],data[5]);
 			editMainCategory.verifyeditedMC(data[6]);
 				
 		}
@@ -204,8 +204,8 @@ public class Regressiontestcases extends BaseClass {
 			home.navLoginpage();;
 			login.loginApp(data[0],data[1]);
 			dashBoard.navSubCategories();
-			//editSubCategory.selectEditicon(data[2]);
-			//editSubCategory.editSubcategoryPage(data[3],data[4],data[5]);
+			editSubCategory.selectEditicon(data[2]);
+			editSubCategory.editSubcategoryPage(data[3],data[4],data[5]);
 			editSubCategory.verifyediteddetails(data[6]);
 					
 		}
@@ -238,105 +238,72 @@ public class Regressiontestcases extends BaseClass {
 			Home home = PageFactory.initElements(driver, Home.class);
 			AddProducts addproduct= PageFactory.initElements(driver, AddProducts.class);
 			
-			Home.navLoginpage();
-			login.loginApp("admin","admin@123");
+			home.navLoginpage();
+			login.loginApp(data[0],data[1]);
 			addproduct.navAddProducts();
-			addproduct.addProducts("SINAREST", "PARACIP", "201", "For Cold", "C", "For Cold", "706", "CIPLA", "6/6",
-			"20", "224150", "150", "B", "C:\\Users\\DELL\\Downloads\\Img.jpg", 
-					"C:\\Users\\DELL\\Downloads\\SDS.jpg", "C:\\Users\\DELL\\Downloads\\PSS.jpg");			
+			addproduct.addProducts(data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],data[14],data[15],data[16],data[17]);			
 		}
 	//============================Add Products with out Maindatory fields=====================	
 		
 	     @Test
 		public static void TC014_addProductswithoutMaindatoryFields()
 		{		
-			Login login = PageFactory.initElements(driver, Login.class);
+	    	String[] data = ExcelLib.getRowData("TC014_addProductswithoutMaindatoryFields", "Regression");
+	    	Login login = PageFactory.initElements(driver, Login.class);
 			Home home = PageFactory.initElements(driver, Home.class);
 			AddProducts addproduct= PageFactory.initElements(driver, AddProducts.class);
 		
-			Home.navLoginpage();
-			login.loginApp("admin","admin@123");
+			home.navLoginpage();
+			login.loginApp(data[0],data[1]);
 			addproduct.navAddProducts();
-			addproduct.addProductswithoutMaindarory("c", "Fever", "301", "4/4", "50", "706", "S", "C:\\Users\\DELL\\Downloads\\Img.jpg", "C:\\Users\\DELL\\Downloads\\SDS.jpg", "C:\\Users\\DELL\\Downloads\\PSS.jpg");
+			addproduct.addProductswithoutMaindarory(data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11]);
 				
 		}
 	 //============================Add Products with out SubCategory=====================	
 		public static void TC015_addProductWithoutSubCategory()
 		{		
+			String[] data = ExcelLib.getRowData("TC015_addProductWithoutSubCategory", "Regression");
 			Login login = PageFactory.initElements(driver, Login.class);
 			Home home = PageFactory.initElements(driver, Home.class);
 			AddProducts addproduct= PageFactory.initElements(driver, AddProducts.class);
 
-			Home.navLoginpage();
-			login.loginApp("admin","admin@123");
+			home.navLoginpage();
+			login.loginApp(data[0],data[1]);
 			addproduct.navAddProducts();
-			addproduct.addProductwithoutSubCategory("SINAREST","201", "For Cold", "C", "For Cold", "706", "CIPLA", "6/6",
-			"20", "224150", "150", "B", "C:\\Users\\DELL\\Downloads\\Img.jpg", 
-					"C:\\Users\\DELL\\Downloads\\SDS.jpg", "C:\\Users\\DELL\\Downloads\\PSS.jpg");	
+			addproduct.addProductwithoutSubCategory(data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],data[14],data[15],data[16]);	
 		}
     //============================Add Products with Duplicate product=====================		
 		public static void TC016_addProductwithDuplicateProduct()
 		{		
+			String[] data = ExcelLib.getRowData("TC016_addProductwithDuplicateProduct", "Regression");
 			Login login = PageFactory.initElements(driver, Login.class);
 			Home home = PageFactory.initElements(driver, Home.class);
 			AddProducts addproduct= PageFactory.initElements(driver, AddProducts.class);
 			
-			Home.navLoginpage();
-			login.loginApp("admin","admin@123");
-			
+			home.navLoginpage();
+			login.loginApp(data[0],data[1]);
 			addproduct.navAddProducts();
-			addproduct.addProducts("SINAREST", "PARACIP", "201", "For Cold", "C", "For Cold", "706", "CIPLA", "6/6",
-			"20", "224150", "150", "B", "C:\\Users\\DELL\\Downloads\\Img.jpg", 
-					"C:\\Users\\DELL\\Downloads\\SDS.jpg", "C:\\Users\\DELL\\Downloads\\PSS.jpg");			
+			addproduct.addProducts(data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],data[14],data[15],data[16],data[17]);			
 		} 
     //=========================Edit product========================
 	@Test
 		public static void TC017_EditProducts()
 		{		
-			Login login = PageFactory.initElements(driver, Login.class);
+		    String[] data = ExcelLib.getRowData("TC017_EditProducts", "Regression");
+		    Login login = PageFactory.initElements(driver, Login.class);
 			Home home = PageFactory.initElements(driver, Home.class);
 			DashBoard dashBoard = PageFactory.initElements(driver, DashBoard.class);
 			AddProducts addproduct= PageFactory.initElements(driver, AddProducts.class);
 			EditProducts editProduct= PageFactory.initElements(driver, EditProducts.class);
 			
-			Home.navLoginpage();
-			login.loginApp("admin","admin@123");
+			home.navLoginpage();
+			login.loginApp(data[0],data[1]);
+			dashBoard.navProducts();
+			editProduct.selectEditicon(data[2]);
+			editProduct.editProduct(data[3],data[4],data[5],data[6],data[7],data[8],data[9]);
+			editProduct.verifyediteddetails(data[6]);
 			
-			boolean BTag=true;
-			for(int row=1;row<=10;row++)
-			{
-				String cellText=driver.findElement(By.xpath("//*[@id='dataTable']/tbody/tr["+row+"]/td[3]")).getText();
-				
-				////*[@id="dataTable"]/tbody/tr[3]/td[3]
-				
-				if((cellText.contains("dimethy")))
-						
-						{
-					
-					editProduct.EditProduct();
-					addproduct.addProducts("SINAREST", "PARACIP", "201", "For Cold", "C", "For Cold", "706", "CIPLA", "6/6",
-					"20", "224150", "150", "B", "C:\\Users\\DELL\\Downloads\\Img.jpg", 
-							"C:\\Users\\DELL\\Downloads\\SDS.jpg", "C:\\Users\\DELL\\Downloads\\PSS.jpg");
-					
-				
-				}
-				BTag=false;
-				break;
-				
-					
-						}
-		
-		
 			
-			if(BTag=true)
-			{
-				System.out.println("Details Edited Succesfully");
-			}
-			else
-			{
-				System.out.println("Details Not Edited");
-			
-	       }
 		}
 	//=====================Delete the product==========================================
 	

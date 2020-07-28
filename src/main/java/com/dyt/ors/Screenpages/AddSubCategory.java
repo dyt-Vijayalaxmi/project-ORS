@@ -76,7 +76,7 @@ public class AddSubCategory extends WebLibrary{
 			 Reporter.log(bstatus,"Submit Button is clicked","Submit Button not clicked");
 			 
 		}
-		 //==================================to verify Main Category exist ==========================
+  //==================================to verify Sub Category exist ==========================
 		public static void toVerifySCAllreadyExist()
 		{
 			boolean bstatus;

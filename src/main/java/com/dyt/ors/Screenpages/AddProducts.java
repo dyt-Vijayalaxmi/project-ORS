@@ -1,5 +1,8 @@
 package com.dyt.ors.Screenpages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -93,10 +96,9 @@ public class AddProducts extends WebLibrary{
 	}
 	//=========================================================
 	public static void addProducts(String NameMainCategory, String NameSubCategory,String Catno, String prdDesc,
-									String prdGrade,String synonyms,String prdCasNo,
-									String Make,String packsize,String prdAvalibility,
-									String HsCode, String PrdPrice,String selectorder,String Imgfilepath,
-									String SDSfilepath, String PSSfilepath) 
+									String prdGrade,String synonyms,String prdCasNo,String Make,
+									String packsize,String prdAvalibility,String HsCode,String PrdPrice, 
+									String selectorder,String Imgfilepath,String SDSfilepath, String PSSfilepath) 
 	{
 		boolean bStatus;
 		
@@ -157,9 +159,10 @@ public class AddProducts extends WebLibrary{
 	
 	//==========================add Products without Maindarory===========================================
 	
-	public static void addProductswithoutMaindarory(String prdGrade,String synonyms,String prdCasNo,String packsize,String prdAvalibility,
-			String HsCode,String selectorder,String Imgfilepath,
-			String SDSfilepath, String PSSfilepath) 
+	public static void addProductswithoutMaindarory
+	       (String prdGrade,String synonyms,String prdCasNo,
+			String packsize,String prdAvalibility,String HsCode,
+			String selectorder,String Imgfilepath,String SDSfilepath, String PSSfilepath) 
         {
 		boolean bStatus;
 		
@@ -199,11 +202,12 @@ public class AddProducts extends WebLibrary{
 	
 	//=============================add Product without SubCategory==================================================
 	
-	public static void addProductwithoutSubCategory(String NameMainCategory,String Catno, String prdDesc,
+	public static void addProductwithoutSubCategory
+	       (String NameMainCategory,String Catno, String prdDesc,
 			String prdGrade,String synonyms,String prdCasNo,
 			String Make,String packsize,String prdAvalibility,
-			String HsCode, String PrdPrice,String selectorder,String Imgfilepath,
-			String SDSfilepath, String PSSfilepath) 
+			String HsCode, String PrdPrice,String selectorder,
+			String Imgfilepath,String SDSfilepath, String PSSfilepath) 
 		{
 		boolean bStatus;
 		
@@ -256,7 +260,61 @@ public class AddProducts extends WebLibrary{
 		Reporter.log(bStatus, "submit button is clicked", "submit button is clicked");
 		}	
 			
+	//==================================to verify Product exist ==========================
+			public static boolean toVerifyProductAllreadyExist(String expValue)
+			{
+				boolean bStatus = false;
+				try {
+				List<WebElement> rows = driver.findElements(By.xpath("//table[@id='dataTable']/tbody/tr"));
+				int tabrowscount=rows.size();
+				
+				
+				for(int i=1; i<=tabrowscount; i++) {
+				String actValue=driver.findElement(By.xpath("//table[@id='dataTable']/tbody/tr["+i+"]/td[6]")).getText();
+				
+				if ((actValue.equals(expValue)))  {
+					System.out.println("Product is added in Product list page");
+					break;
+					}
+				
+				}
+				}
+				catch(Exception e) {
+					bStatus = false;
+				}
+				return bStatus;
+				
+				
+			}
+				
 			
+	  //=================verify added Product present in the Sub Category List page===================
+			public static boolean verifyAddedSC(String expValue) {
+				boolean bStatus = false;
+				try {
+				List<WebElement> rows = driver.findElements(By.xpath("//table[@id='dataTable']/tbody/tr"));
+				int tabrowscount=rows.size();
+				
+				
+				for(int i=1; i<=tabrowscount; i++) {
+				String actValue=driver.findElement(By.xpath("//table[@id='dataTable']/tbody/tr["+i+"]/td[6]")).getText();
+				
+				if ((actValue.equals(expValue)))  {
+					System.out.println("Product is added in Product list page");
+					break;
+					}
+				
+				}
+				}
+				catch(Exception e) {
+					bStatus = false;
+				}
+				return bStatus;
+				
+				
+			}
+
+			//=========================================================================	
 			
 
 }

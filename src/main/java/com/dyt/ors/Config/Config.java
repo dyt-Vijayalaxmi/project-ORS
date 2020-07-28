@@ -11,6 +11,8 @@ public class Config {
 		public static String TestDataPath = "F:\\vijju\\project_ORS\\TestData\\OrbitScience_data.xlsx";
 		public static String ResultsPath = System.getProperty("user.dir")+"//Results//";
 	
+		public static String Regression_sheetname = "Regression";
+		public static String Smoke_sheetname = "Smoke";
 	}
 
 
